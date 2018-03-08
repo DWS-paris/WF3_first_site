@@ -1,0 +1,289 @@
+/* 
+Style Reset
+*/
+    /* Importer les polices google font */
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700');
+    @import url('https://use.fontawesome.com/releases/v5.0.8/css/all.css');
+
+    *{
+        /* Supprimer toutes les marges de toutes les balises */
+        margin: 0; /*  ext. */
+        padding: 0; /* int. */
+
+        /* Intéger les padding et les border dasn la taille des balises */
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    /* Passer en base 10 pour le document */
+    html{
+        font-size: 62.5%; /* 1rem => 10px */
+    }
+
+    body{
+        font-size: 1.5rem;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        color: white;
+    }
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+    h1, h2, h3, nav{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    h2{
+        font-size: 3rem;
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 4rem;
+    }
+
+    main section, footer{
+        padding: 8rem 0;
+    }
+
+    ul{
+        /* Supprimer le style des listes (puces) */
+        list-style: none;
+    }
+/**/
+
+
+/* 
+Style header
+*/
+    header{
+        text-align: center;
+        padding: 13rem 0 8rem 0;
+        background-color: #18bc9c;
+    }
+
+    /* 
+    Sélectionner la balise <a> qui est enfant direct de la balise <nav>
+    nav > a {...}
+    */
+
+    /* 
+    Sélectionner la balise <a> qui à pour valeur de href "index.html"
+    */
+    a[href="index.html"]:hover + ul, nav ul:hover{
+        display: block;
+    }
+
+    nav{
+        text-align: center;
+        padding: 2rem 0;
+        margin-bottom: 8rem;
+        background-color: #2c3e50;
+
+        /* Bloquer la <nav> en haut de la page */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        /* Gérer les couches */
+        z-index: 1000;
+    }
+
+    nav ul {
+        /* Limiter la largeur maximale */
+        max-width: 90rem;
+
+        /* Centrer la balise dans la largeur */
+        margin: auto;
+
+        /* Bloquer les enfants dans leur parent */
+        position: relative;
+
+        /* Pour l'animation */
+        display: none;
+    }
+
+    
+    h1 {
+        font-size: 4rem;
+        padding-top: 4rem;
+
+        /* Bloquer les enfants dans le parent (::after et ::before également) */
+        position: relative;
+    }
+
+    /* Ajouter un pseudo élément dans la balise <h1> */
+    h1::after, h1::before {
+        content: '';
+        display: block;
+    }
+
+    h1::before{
+        content: "\2605";
+        font-size: 3rem;
+        color: white;
+        background-color: #18bc9c;
+        width: 4rem;
+        height: 4rem;
+        
+        /* Sortir la balise du flux pour la reposotionner */
+        position: absolute;
+        top: 82%;
+        left: 49%;
+    }
+
+    h1::after {
+        background-color: white;
+        height: .5rem;
+        width: 20rem;
+        margin: 2rem auto;
+    }
+
+    header p{
+        font-size: 2rem;
+    }
+/**/
+
+
+/* 
+Style Main
+*/
+    /* Portfolio */
+        #portfolio{
+            max-width: 94rem;
+            margin: auto;
+        }
+
+        #portfolio li{
+            padding: 2rem;
+        }
+
+    /* about */
+        #about{
+            text-align: center;
+            background-color: #18bc9c;
+        }
+
+        #about article{
+            font-size: 1.7rem;
+            text-align: left;
+            max-width: 70rem;
+            margin: auto;
+        }
+
+        #about h2{
+            color: white;
+        }
+
+        #about p{
+            padding: 1rem;
+        }
+
+    /* Contacts */
+        form{
+            padding: 0 2rem;
+            max-width: 70rem;
+            margin: auto;
+        }
+
+        input, textarea{
+            font-size: 2rem;
+
+            /* Changer le type de boite */
+            display: block;
+            width: 100%;
+
+            border: none;
+            border-bottom: .1rem solid #2c3e4f;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        textarea{
+            min-height: 15rem;
+        }
+
+        [type="submit"]{
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            padding: 2rem;
+            border: none;
+            background-color: #18bc9c;
+
+            /* https://www.w3schools.com/cssref/css3_pr_border-radius.asp */
+            -moz-border-radius: .5rem;
+            -webkit-border-radius: .5rem;
+            border-radius: .5rem;
+        }
+
+/**/
+
+
+/* 
+Style footer
+*/
+    footer {
+        background-color: #2c3e4f;
+        padding: 8rem 2rem;
+        text-align: center;
+    }
+
+    footer h3{
+        margin-bottom: 2rem;
+    }
+
+    iframe{
+        width: 100%;
+        min-height: 25rem;
+        border: none;
+        margin-bottom: 3rem;
+    }
+/**/
+
+
+
+
+
+
+
+
+/* 
+Requête media
+*/
+    @media screen and (min-width: 500px){
+        #about article, #portfolio ul, footer section {
+            display: -ms-flex;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+
+            -ms-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        #about p {
+            width: 50%;
+        }
+
+        footer section{
+            max-width: 90rem;
+            margin: auto;
+        }
+
+        #portfolio li, footer article{
+            width: 33.333%;
+        }
+    }
+/**/
